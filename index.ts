@@ -6,5 +6,6 @@ export * as Looks from "./lib/blocks/looks";
 export * as Motion from "./lib/blocks/motion";
 export * as Operators from "./lib/blocks/operators";
 export * as Procedure from "./lib/blocks/procedure";
+export * as Sensing from "./lib/blocks/sensing";
 
 export * from "./lib/blocks";
