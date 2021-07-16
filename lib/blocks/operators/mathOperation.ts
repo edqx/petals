@@ -1,5 +1,6 @@
 import { Opcode, PetalsValue } from "../../types";
-import { Block, Inputs } from "../block";
+import { Inputs } from "../block";
+import { Reporter } from "../reporter";
 
 export enum MathOperationOption {
   Abs = "abs",
@@ -18,7 +19,7 @@ export enum MathOperationOption {
   Power10 = "10 ^",
 }
 
-export class LetterOf extends Block {
+export class MathOperation extends Reporter {
   public readonly opcode = Opcode.LetterOf;
 
   constructor(

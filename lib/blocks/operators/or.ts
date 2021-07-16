@@ -1,7 +1,8 @@
 import { Opcode, PetalsValue } from "../../types";
-import { Block, Inputs } from "../block";
+import { Inputs } from "../block";
+import { Reporter } from "../reporter";
 
-export class Or extends Block {
+export class Or extends Reporter {
   public readonly opcode = Opcode.Or;
 
   constructor(
