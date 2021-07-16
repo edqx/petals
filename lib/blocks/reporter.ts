@@ -6,6 +6,7 @@ import * as Looks from "./looks";
 import * as Motion from "./motion";
 import * as Operators from "./operators";
 import * as Procedure from "./procedure";
+import * as Sensing from "./sensing";
 
 export abstract class Reporter extends Block {
   static getOpcodes(): { [opcode: Opcode]: Reporter } {
@@ -79,7 +80,7 @@ export abstract class Reporter extends Block {
        * Sensing reporter opcodes: {@link "https://github.com/LLK/scratch-vm/blob/develop/src/blocks/scratch3_sensing.js"}
        */
 
-      sensing_touchingobject:
+      sensing_touchingobject: Sensing.TouchingObject,
       sensing_touchingcolor:
       sensing_coloristouchingcolor:
       sensing_distanceto:
@@ -93,7 +94,7 @@ export abstract class Reporter extends Block {
       sensing_dayssince2000:
       sensing_loudness:
       sensing_loud:
-      sensing_answer:
+      sensing_answer: Sensing.Answer,
       sensing_username:
       sensing_userid:
 

@@ -1,12 +1,17 @@
 import { Opcode, PetalsValue } from "../types";
 import { Script } from "../script";
 import { List, Variable } from "./data/variables";
-import * as Control from "./control";
-import * as Data from "./data";
-import * as Looks from "./looks";
 import { SerializedBlock } from "../types/serializedBlock";
 import { Reporter } from "./reporter";
 import { Cap } from "./cap";
+
+import * as Control from "./control";
+import * as Data from "./data";
+import * as Looks from "./looks";
+import * as Motion from "./motion";
+import * as Operators from "./operators";
+import * as Procedure from "./procedure";
+import * as Sensing from "./sensing";
 
 export type Fields = {
   [key: string]: string | Variable | List;
@@ -60,7 +65,7 @@ export abstract class Block {
       data_changevariableby: Data.IncrementVariableBy,
       data_hidevariable: Data.HideVariable,
       data_showvariable: Data.ShowVariable,
-      data_addtolist: Data.AddToList, 
+      data_addtolist: Data.AddToList,
       data_deleteoflist: Data.DeleteAtList,
       data_deletealloflist: Data.DeleteAllOfList,
       data_insertatlist: Data.InsertAtList,
@@ -72,7 +77,7 @@ export abstract class Block {
        * Event Stack opcodes {@link https://github.com/LLK/scratch-vm/blob/develop/src/blocks/scratch3_event.js}
        */
 
-      event_broadcast:
+      event_broadcast
       event_broadcastandwait:
 
       /**
@@ -105,21 +110,21 @@ export abstract class Block {
        * Motion Stack opcodes: {@link https://github.com/LLK/scratch-vm/blob/develop/src/blocks/scratch3_motion.js}
        */
 
-      motion_movesteps:
-      motion_gotoxy:
-      motion_goto:
-      motion_turnright:
-      motion_turnleft:
-      motion_pointindirection:
-      motion_pointtowards:
-      motion_glidesecstoxy:
-      motion_glideto:
-      motion_ifonedgebounce:
-      motion_setrotationstyle:
-      motion_changexby:
-      motion_setx:
-      motion_changeyby:
-      motion_sety:
+      motion_movesteps: Motion.MoveSteps,
+      motion_gotoxy: Motion.GoToXY,
+      motion_goto: Motion.Goto,
+      motion_turnright: Motion.TurnRight,
+      motion_turnleft: Motion.TurnLeft,
+      motion_pointindirection: Motion.PointInDirection,
+      motion_pointtowards: Motion.PointTowards,
+      motion_glidesecstoxy: Motion.GlideSecsToXY,
+      motion_glideto: Motion.GlideTo,
+      motion_ifonedgebounce: Motion.IfOnEdgeBounce,
+      motion_setrotationstyle: Motion.SetRotationStyle,
+      motion_changexby: Motion.ChangeXBy,
+      motion_setx: Motion.SetX,
+      motion_changeyby: Motion.ChangeYBy,
+      motion_sety: Motion.SetY,
 
       /**
        * Procedures Stack opcodes: {@link https://github.com/LLK/scratch-vm/blob/develop/src/blocks/scratch3_procedures.js}
@@ -133,20 +138,20 @@ export abstract class Block {
 
       sensing_resettimer:
       sensing_setdragmode:
-      sensing_askandwait:
+      sensing_askandwait: Sensing.AskAndWait,
 
       /**
        * Sound Stack opcodes: {@link https://github.com/LLK/scratch-vm/blob/develop/src/blocks/scratch3_sound.js}
        */
 
-      sound_play: 
-      sound_playuntildone: 
-      sound_stopallsounds: 
-      sound_seteffectto: 
-      sound_changeeffectby: 
-      sound_cleareffects: 
-      sound_setvolumeto: 
-      sound_changevolumeby: 
+      sound_play:
+      sound_playuntildone:
+      sound_stopallsounds:
+      sound_seteffectto:
+      sound_changeeffectby:
+      sound_cleareffects:
+      sound_setvolumeto:
+      sound_changevolumeby:
     }
   }
 
@@ -158,7 +163,7 @@ export abstract class Block {
       // we are dealing with a reporter.
     } else
     if (Cap.getOpcodes()[block.opcode] !== null) {
-      
+
     }
   }
 }
